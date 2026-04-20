@@ -5,12 +5,16 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
+      - echo "Upgrading pip"
       - python -m pip install --upgrade pip
+      - echo "Installing dependencies"
       - pip install -r requirements.txt
+      - pip install pytest
 
   build:
     commands:
-      - pytest || exit 1
+      - echo "Running tests"
+      - pytest
 
   post_build:
     commands:
